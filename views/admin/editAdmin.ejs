@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Admin</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div class="form container">
+            <h4 class="mb-3">Edit Admin</h4>
+            <form action="/edit/<%= admin.id %>/admin" method="POST">
+                <div>
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" name="name" value="<%= admin.name %>">
+                </div>
+                <div>
+                    <label for="username">Username: </label>
+                    <input class="form-control" type="text" name="username" value="<%= admin.username %>">
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input class="form-control" type="password" name="password" value="<%= admin.password %>">
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input class="form-control" type="text" name="email" value="<%= admin.email %>">
+                </div>
+                <div>
+                    <label for="gender">Gender: </label>
+                    <input class="form-control" type="text" name="gender" value="<%= admin.gender %>">
+                </div>
+                <div>
+                    <label for="phone_number">Phone Number: </label>
+                    <input class="form-control" type="text" name="phone_number" value="<%= admin.phone_number %>">
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a href="/admin"><button type="button" class="btn btn-danger">Cancel</button></a>
+            </form>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

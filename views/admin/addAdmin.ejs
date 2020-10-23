@@ -1,0 +1,59 @@
+<!-- /admin -> dashboard table list admin, customer, hairstylist (punya action delete, see userService)
+/admin/add/admin -> add admin
+/admin/add/hairstylist -> add hairstylist
+/admin/edit/:id -> edit user (berlaku ke all user) #privileges
+/admin/delete/:id -> delete (berlaku ke all user) # privileges
+/admin/services -> list service apa aja -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Admin</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div class="form container">
+            <h4 class="mb-3">Add Admin</h4>
+            <form action="/admin/add/admin" method="POST">
+                <div class="form-group name">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="form-group username">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username">
+                </div>
+                <div class="form-group password">
+                    <label for="genre">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="form-group email">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email">
+                </div>
+                <div class="form-group gender">
+                    <label for="gender">Gender</label> <br>
+                    <select name="gender" id="gender" class="form-control">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group phone_number">
+                    <label for="phone_number">Phone number</label>
+                    <input type="tel" name="phone_number" id="phone_number" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="role" id="role" value="admin">
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a href="/admin"><button type="button" class="btn btn-danger">Cancel</button></a>
+            </form>
+        </div>
+    </main>
+
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html> 

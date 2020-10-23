@@ -1,0 +1,11 @@
+[
+    {
+        "name": "admin",
+        "username": "admin",
+        "password": "$2a$10$k2qauRRIDsveZ0i3OM7VcehetH1tDuQXhcoEstIzTmV4s0wQkUaVC",
+        "email": "admin@gmail.com",
+        "gender": "male",
+        "phone_number": "0828788006698",
+        "role": "admin"
+    }
+]

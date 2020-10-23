@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Hairstylist</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div class="form container">
+            <h4 class="mb-3">Edit Hairstylist</h4>
+            <form action="/edit/<%= hairstylist.id %>/hairstylist" method="POST">
+                <div>
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" name="name" value="<%= hairstylist.name %>">
+                </div>
+                <div>
+                    <label for="username">Username: </label>
+                    <input class="form-control" type="text" name="username" value="<%= hairstylist.username %>">
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input class="form-control" type="password" name="password" value="<%= hairstylist.password %>">
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input class="form-control" type="text" name="email" value="<%= hairstylist.email %>">
+                </div>
+                <div>
+                    <label for="gender">Gender: </label>
+                    <input class="form-control" type="text" name="gender" value="<%= hairstylist.gender %>">
+                </div>
+                <div>
+                    <label for="phone_number">Phone Number: </label>
+                    <input class="form-control" type="text" name="phone_number" value="<%= hairstylist.phone_number %>">
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a href="/admin"><button type="button" class="btn btn-danger">Cancel</button></a>
+            </form>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

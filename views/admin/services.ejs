@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main class="container">
+        <div class="row">
+            <div class="col-auto mr-auto"></div>
+            <div class="col-auto">
+            <a href="/admin/services/add"><button type="button" class="btn btn-success">Add Service</button></a>
+            </div>
+        </div>
+        <div class="">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No. </th>
+                                <th>Menu </th>
+                                <th>Price </th>
+                                <th>Estimated Duration</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i=0; i<content.length; i++) { %>
+                                <tr>
+                                    <td><%= i+1 %> </td>
+                                    <td><%= content[i].name %></td>
+                                    <td><%= converter(content[i].price) %></td>
+                                    <td><%= content[i].duration %> Menit</td>
+                                    <td><a href="services/edit/<%= content[i].id %>"><button class="btn btn-success">Edit</button></a> <a href="services/delete/<%= content[i].id %>"><button class="btn btn-danger">Delete</button></a></td>
+                                </tr>
+                            <%  } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

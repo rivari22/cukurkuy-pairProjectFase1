@@ -1,0 +1,41 @@
+<!-- /admin -> dashboard table list admin, customer, hairstylist (punya action delete, see userService)
+/admin/add/admin -> add admin
+/admin/add/hairstylist -> add hairstylist
+/admin/edit/:id -> edit user (berlaku ke all user) #privileges
+/admin/delete/:id -> delete (berlaku ke all user) # privileges
+/admin/services -> list service apa aja -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send email to customers</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div class="form container">
+            <h4 class="mb-3">Send email to customers</h4>
+            <form action="/admin/send" method="POST">
+                <div class="form-group email">
+                    <label for="to">To: </label>
+                    <input class="form-control" type="email" name="to" id="to">
+                </div>
+                <div class="form-group name">
+                    <label for="subject">Subject: </label>
+                    <input class="form-control" type="text" name="subject" id="subject">
+                </div>
+                <div class="form-group name">
+                    <label for="text">Text: </label>
+                    <textarea name="text" id="text" cols="30" rows="10" class="form-control" placeholder="Your email should be here!"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Send</button>
+                <a href="/admin"><button type="button" class="btn btn-danger">Cancel</button></a>
+            </form>
+        </div>
+    </main>
+
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html> 

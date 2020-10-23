@@ -1,0 +1,29 @@
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul>
+            <div class="logo">
+                <img src="/assets/barbershop-logoFix1.png" width="150" alt="">
+            </div>
+            <li class="nav-item"><a href="/" class="text-secondary"> Home </a></li>
+            <% if(!customerLoggedIn) { %>
+                <li><a href="register" class="text-secondary">Register</a></li>
+                <li><a href="login" class="text-secondary">Login</a></li>
+            <%  } else if(customerLoggedIn == true) { %>                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hello, <%= usernameCustomer  %> 
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="/customer/<%= idCustomer %>/profile">Profile</a>
+                      <a class="dropdown-item" href="/customer/<%= idCustomer %>/profile/edit">Edit Profile</a>
+                      <a class="dropdown-item" href="/customer/<%= idCustomer %>/history/">History</a>
+                      <a class="dropdown-item" href="/customer/<%= idCustomer %>/ongoing">Order</a>
+                      <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                  </li>
+            <% } %>
+        </ul>
+    </div>
+    </nav>
+</header>

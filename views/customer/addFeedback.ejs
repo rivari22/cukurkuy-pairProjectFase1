@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give your feedback</title>
+    <%- include("../partials/customer/head.ejs") %>
+</head>
+<body>
+    <div class="container">
+        <%- include("../partials/customer/header.ejs") %>
+        <form action="/customer/<%= user.id %>/feedback/<%= userService.id %>" method="POST">
+            <label for="feedback">Feedback</label><br>
+            <textarea name="feedback" cols="30" rows="6" placeholder="Your feedback belongs here"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <%- include("../partials/customer/footer.ejs") %>
+    </div>
+
+</body>
+</html>
+

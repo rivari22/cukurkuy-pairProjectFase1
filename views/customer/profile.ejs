@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <%- include("../partials/customer/head.ejs") %>
+</head>
+<body>
+    <div class="bg-darker">
+        <div class="container">
+            <%- include("../partials/customer/header.ejs") %>
+            <div class="content-customer">
+                <div>
+                    <h2 class="text-white mb-5">Profile</h2>
+                </div>
+                    <ul class="list-group list-group-flush list">
+                        <li class="list-group-item-light p-2 text-dark">Name : <%= user.name %></li>
+                        <li class="list-group-item-light p-2 text-dark">Username : <%= user.username %></li>
+                        <li class="list-group-item-light p-2 text-dark">Email : <%= user.email %></li>
+                        <li class="list-group-item-light p-2 text-dark">Phone Number : <%= user.phone_number %></li>
+                        <li class="list-group-item-light p-2 text-dark">Gender : <%= user.gender %></li>
+                    </ul>
+            </div>
+            <%- include("../partials/customer/footer.ejs") %>
+        </div>
+    </div>
+</body>
+</html>

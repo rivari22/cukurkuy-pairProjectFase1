@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <%- include("../partials/customer/head.ejs") %>
+</head>
+<body>
+    <div class="container-template-services">
+        <div class="content">
+                <div class="mid-services">
+                    <div class="img-services">
+                        <img src="/assets/barberbg1.png" alt="" width="900" height="669">
+                    </div>
+                    <div class="menu-services">
+                        <form action="/customer/service/form" method="post">
+                            <h4 class="ml-5">Order Form</h4>
+                            <div class="form-group">
+                                <label for="service_id" class="text-light ml-5">Service</label>
+                                <select name="service_id" id="service_id" class="form-control ml-5">
+                                    <option value="" disabled selected>Please select</option>
+                                    <% dataService.forEach(data => { %>
+                                        <option value="<%= data.id %>"><%= data.name %> (<%= intoRupiah(data.price) %>)</option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hairstylist_id" class="text-light ml-5">Hairstylist</label>
+                                <select name="hairstylist_id" id="hairstylist_id" class="form-control ml-5">
+                                    <option value="" disabled selected>Please select</option>
+                                    <% dataHairstylist.forEach(data => { %>
+                                        <option value="<%= data.id %>"><%= data.full_name() %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-dark ml-5">Submit</button>
+                            <a href="/"><button type="button" class="btn btn-dark ml-2">Cancel</button></a>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <%- include("../partials/customer/footer.ejs") %>
+    </div>
+</body>
+</html>

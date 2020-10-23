@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+
+    <%- include("../partials/header.ejs", {login: false}) %>
+<div class="container">
+    <div class="row">
+        <div class="col mb-3">
+            <h3>Services per Customer</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table" border="1">
+                <thead>
+                    <tr>
+                        <th>Service ID</th>
+                        <th>Customer Name</th>
+                        <th>Service Name</th>
+                        <th>Hairstylist</th>
+                        <th>isDone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(element => { %>
+                        <tr>
+                            <td><%= element.id %> </td>
+                            <td><%= element.User.name %> </td>
+                            <td><%= element.Service.name %></td>
+                            <td><%= element.Hairstylist.full_name() %></td>
+                            <td><%= element.isDone %> </td>
+                            <% if(element.isDone===false) { %>
+                                <td><a href="/admin/services/<%= element.User.id %>/done/<%= element.id %>"><button class="btn btn-primary" type="button">Done</button></a></td>
+                            <% } %> 
+                        </tr>
+                    <%  }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer.ejs") %>
+</body>
+</html> 

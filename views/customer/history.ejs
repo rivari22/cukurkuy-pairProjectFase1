@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <%- include("../partials/customer/head.ejs") %>
+</head>
+<body>
+    <div class="bg-darker">
+    <div class="container">
+        <%- include("../partials/customer/header.ejs") %>
+        <div class="content-customer">
+    <div class="row">
+        <div class="col mb-3">
+            <h3 class="text-light">History</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-light">Order Id</th>
+                        <th class="text-light">Service Name</th>
+                        <th class="text-light">Hairstylist</th>
+                        <th class="text-light">Feedback</th>
+                        <th class="text-light">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(element => { %>
+                        <tr>
+                            <td class="text-light"><%= element.id %></td>
+                            <td class="text-light"><%= element.Service.name %></td>
+                            <td class="text-light"><%= element.Hairstylist.full_name() %></td>
+                            <td class="text-light"><%= element.feedback %></td>
+                            <td class="text-light"> <a href="/customer/<%= element.User.id %>/feedback/<%= element.id %>"><button>Give Feedback</button></a></td>
+                        </tr>
+                    <%  }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%- include("../partials/customer/footer.ejs") %>
+</div>
+</div>
+</div>
+</body>
+</html>

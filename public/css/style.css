@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+}
+header nav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+header nav ul li {
+    margin: 5px 20px;
+    font-size: 1.1em;
+    list-style: none;
+}
+header nav ul .logo {
+    margin-right: 700px;
+}
+.container-template{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: url("../assets/barberFix.png") center;
+}
+.main-index{
+    height: 80vh;
+}
+.mid{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* services */
+.container-template-services{
+    height: 100vh;
+    background-color: rgb(27, 26, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    height: 80%;
+    width: 80%;
+    background-color: black;
+}
+.img-services img   {
+    display: block;
+}
+.mid-services {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.menu-services {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* profile */
+.bg-darker {
+    height: 100vh;
+    background-color: rgb(27, 26, 26);
+}
+.content-customer {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(51, 50, 50);
+    padding: 20px;
+}
+.list li {
+    list-style: none;
+    font-size: 1.1em;
+}

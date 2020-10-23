@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>
+
+    <%- include("../partials/header.ejs", {login: false}) %>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col mb-3">
+                    <h3>User</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% dataUserNService.forEach(item => { %>
+                                <tr>
+                                    <td><%= item.id %></td>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.email %></td>
+                                    <td><%= item.gender %></td>
+                                    <td><%= item.phone_number %></td>
+                                    <td><%= item.role %></td>
+                                    <td>
+                                        <% if(item.role === "customer") { %>
+                                            <a href="/admin/services/<%= item.id %>"><button class="btn btn-primary">Services</button></a>
+                                            <a href="/admin/delete/<%= item.id %>/admin"><button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button></a>
+                                        <% } else { %>
+                                            <a href="/admin/delete/<%= item.id %>/admin"><button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button></a>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <%  }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="/admin/send"><button class="btn btn-primary">Send Email to Customer</button></a>
+        </div>
+        
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col mb-3">
+                    <h3>Hairstylist</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% dataHairstylist.forEach(item => { %>
+                                <tr>
+                                    <td><%= item.id %></td>
+                                    <td><%= item.full_name() %></td>
+                                    <td><%= item.email %></td>
+                                    <td><%= item.gender %></td>
+                                    <td><%= item.phone_number %></td>
+                                    <td>
+                                        <a href="/admin/delete/<%= item.id %>/hairstylist"><button class="btn btn-danger">Delete</button></a>
+                                    </td>
+                                </tr>
+                            <%  }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html> 
